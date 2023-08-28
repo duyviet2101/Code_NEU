@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- CÁC PHẦN TỬ HTML NÂNG CAO -->
+    <form action="#">
+        <p>Họ đệm: 
+        <input type="text" id="hodem" name="hodem">
+        </p>
+
+
+        <p>Tên: 
+            <input type="text" id="ten" name="ten">
+        </p>
+        
+        
+        <p>Giới tính:
+        <input type="radio" name="gioitinh" id="nam">
+        <label for="nam">Nam</label>
+        <input type="radio" name="gioitinh" id="nu">
+        <label for="nu">Nữ</label>    
+        </p>
+        
+
+        <p>Khoa: 
+            <select name="khoa" id="khoa">
+                <option value="CNTTKTS" selected>Viện CNTT & KTS</option>
+                <option value="taichinh">Tài chính</option>
+                <option value="mkt">Marketing</option>
+                <option value="tkt">Toán kinh tế</option>
+            </select>
+        </p>
+        
+
+        <p>Ảnh đại diện:
+            <input type="file" id="avatar" name="avatar" accept=".jpg">
+        </p>
+
+
+        <p>Đã học lập trình:
+            <input type="checkbox" name="ngonngu" id="C" value="C">
+            <label for="C">C</label>
+
+            <input type="checkbox" name="ngonngu" id="Java" value="java">
+            <label for="Java">Java</label>
+
+            <input type="checkbox" name="ngonngu" id="Python" value="python">
+            <label for="Python">Python</label>
+        </p>
+
+        <p>Giới thiệu bản thân:
+        </p>
+        <textarea name="gioithieu" id="gioithieu" cols="30" rows="10"></textarea>
+        <br>
+        <input type="submit" value="Xác nhận">
+        <input type="reset" value="Xoá">
+    </form>
+</body>
+</html>
