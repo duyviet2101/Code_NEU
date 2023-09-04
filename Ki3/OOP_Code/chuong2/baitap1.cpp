@@ -53,7 +53,7 @@ class Time {
         }
 
         //! khong can chu y den phan nay - nap chong toan tu
-        // friend istream& operator >> (istream& in, Time x) {
+        // friend istream& operator >> (istream& in, Time &x) {
         //     in >> x.hour >> x.min >> x.sec;
         //     return in;
         // }
