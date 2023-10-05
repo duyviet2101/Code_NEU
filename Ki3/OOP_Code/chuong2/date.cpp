@@ -77,9 +77,12 @@ public:
                 y++;
             }
         }
-        if (y < 1) y = 1;
-        if (m < 1) m = 1;
-        if (d < 1) d = 1;
+        if (y < 1)
+            y = 1;
+        if (m < 1)
+            m = 1;
+        if (d < 1)
+            d = 1;
     }
 
     //! advance()
@@ -109,63 +112,80 @@ public:
     }
 
     //! hàm trả về số năm nhuận từ mốc 0/0/0 đến thời điểm hiện tại
-    int countLeapYears()
-    {
-        int years = y;
-        // kiểm tra nếu tháng trong năm là 1 hoặc 2 thì nghĩa là không cần kiểm tra năm hiện tại là năm nhuận hay không vì không ảnh hưởng
-        if (m <= 2)
-            years--;
+    // int countLeapYears()
+    // {
+    //     int years = y;
+    //     // kiểm tra nếu tháng trong năm là 1 hoặc 2 thì nghĩa là không cần kiểm tra năm hiện tại là năm nhuận hay không vì không ảnh hưởng
+    //     if (m <= 2)
+    //         years--;
 
-        return years / 4 - years / 100 + years / 400;
-    }
+    //     return years / 4 - years / 100 + years / 400;
+    // }
     //! toán tử - trả về số ngày giữa 2 thời điểm
-    friend int operator-(Date a, Date b)
+    // friend int operator-(Date a, Date b)
+    // {
+
+    //     //*tính số ngày từ mốc 0/0/0 đến thời điểm a
+    //     ll cnt1 = a.y * 365 + a.d;
+    //     for (int i = 0; i < a.m - 1; i++)
+    //     {
+    //         cnt1 += monthDays[i];
+    //     }
+    //     cnt1 += a.countLeapYears();
+
+    //     //*tính số ngày từ mốc 0/0/0 đến thời điểm b
+    //     ll cnt2 = b.y * 365 + b.d;
+    //     for (int i = 0; i < b.m - 1; i++)
+    //     {
+    //         cnt2 += monthDays[i];
+    //     }
+    //     cnt2 += b.countLeapYears();
+
+    //     return abs(cnt2 - cnt1);
+    // }
+
+    int operator-(Date d2)
     {
-
-        //*tính số ngày từ mốc 0/0/0 đến thời điểm a
-        ll cnt1 = a.y * 365 + a.d;
-        for (int i = 0; i < a.m - 1; i++)
+        int nd = 0;
+        while (d != d2.d || m != d2.m || y != d2.y)
         {
-            cnt1 += monthDays[i];
+            nd++;
+            d2.d++;
+            d2.normalize();
         }
-        cnt1 += a.countLeapYears();
-
-        //*tính số ngày từ mốc 0/0/0 đến thời điểm b
-        ll cnt2 = b.y * 365 + b.d;
-        for (int i = 0; i < b.m - 1; i++)
-        {
-            cnt2 += monthDays[i];
-        }
-        cnt2 += b.countLeapYears();
-
-        return abs(cnt2 - cnt1);
+        return (nd);
     }
 
     //! toan tu <
     friend bool operator<(Date a, Date b)
     {
-        if (a.y != b.y)
-        {
-            if (a.y > b.y)
-                return true;
-            else if (a.y < b.y)
-                return false;
-        }
-        if (a.m != b.m)
-        {
-            if (a.m > b.m)
-                return true;
-            else if (a.m < b.m)
-                return false;
-        }
-        if (a.d != b.d)
-        {
-            if (a.d > b.d)
-                return true;
-            else if (a.d < b.d)
-                return false;
-        }
-        return NULL;
+        // if (a.y != b.y)
+        // {
+        //     if (a.y > b.y)
+        //         return true;
+        //     else if (a.y < b.y)
+        //         return false;
+        // }
+        // if (a.m != b.m)
+        // {
+        //     if (a.m > b.m)
+        //         return true;
+        //     else if (a.m < b.m)
+        //         return false;
+        // }
+        // if (a.d != b.d)
+        // {
+        //     if (a.d > b.d)
+        //         return true;
+        //     else if (a.d < b.d)
+        //         return false;
+        // }
+
+        // return false;
+
+        Date d;
+        if (a - d < b - d) return true;
+        return false;
     }
 
     //! reset
@@ -213,8 +233,10 @@ int main()
     // a.reset(y, m, d);
     // a.in();
 
+    // ! nhập dãy các mốc thời gian
     int n;
-    cout << "Nhap so moc date: "; cin >> n;
+    cout << "Nhap so moc date: ";
+    cin >> n;
     Date d[n];
     for (int i = 0; i < n; i++)
     {
@@ -223,7 +245,8 @@ int main()
     //! sap xep theo thu tu giam dan
     for (int i = 0; i < n; i++)
         for (int j = i + 1; j < n; j++)
-            if (d[i] < (d[j])) {
+            if (d[i] < (d[j]))
+            {
                 Date tg = d[i];
                 d[i] = d[j];
                 d[j] = tg;
@@ -234,5 +257,4 @@ int main()
         d[i].in();
         cout << "    ";
     }
-     
 }

@@ -9,18 +9,21 @@ class SinhVien {
     double diem[9];
     bool thilai[9] = {false};
 public:
-    friend istream& operator >> (istream& in, SinhVien &a) {
+    void nhap() {
         cout << "Nhap ho ten SV: ";
-        getline(in >> ws, a.hoten);
+        getline(cin >> ws, hoten);
         cout << "Nhap nam sinh cua SV: ";
-        in >> a.ns;
+        cin >> ns;
         cout << "Nhap lan luot diem thi 9 mon cua SV: ";
         for (int i = 0; i < 9; i++) {
-            in >> a.diem[i];
-            if (a.diem[i] < 5)
-                a.thilai[i] = true;
+            cin >> diem[i];
+            if (diem[i] < 5)
+                thilai[i] = true;
         }
-        return in;
+    }
+    void in() {
+        cout << endl << "Ho ten: " << hoten;
+        cout << " - Nam sinh: " << ns << endl;
     }
     double getDtb() {
         double res = 0;
@@ -53,6 +56,7 @@ public:
                 cout << i << ",";
             }
         }
+        cout << endl;
     }
 };
 
@@ -65,13 +69,25 @@ int main() {
     for (int i = 0; i < n; i++)
     {
         cout << "Nhap sinh vien thu " << i + 1 << " :" << endl;
-        cin >> a[i];
+        a[i].nhap();
         if (a[i].ketqua() == 1) khoaLuan += 1;
         else if (a[i].ketqua() == 2) thiTotNghiep += 1;
         else thiLai += 1;
     }
+    cout << endl << "---------------------------------------" << endl;
     cout << "Khoa luan: " << khoaLuan << endl;
+    for (int i = 0; i < n; i++)
+    {
+        if (a[i].ketqua() == 1) a[i].in();
+    }
+
+    cout << endl << "---------------------------------------" << endl;
     cout << "Thi tot nghiep: " << thiTotNghiep << endl;
+    for (int i = 0; i < n; i++)
+    {
+        if (a[i].ketqua() == 2) a[i].in();
+    }
+    cout << endl << "---------------------------------------" << endl;
 
     cout << "Thi lai: " << thiLai << endl;
     for (int i = 0; i < n; i++)
