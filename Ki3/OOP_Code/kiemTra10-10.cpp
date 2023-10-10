@@ -9,13 +9,13 @@ public:
   void nhap() {
     cout << "Nhap ma khach hang: "; cin >> makh;
     cout << "Nhap ten khach hang: "; getline(cin >> ws, tenkh);
-    cout << "Nhap tong so du: "; cin >> TSD;
+    cout << "Nhap TSD: "; cin >> TSD;
   }
 //! in thong tin khach hang
   void in() {
     cout << "Ma khach hang: " << makh << endl;
     cout << "Ten khach hang: " << tenkh << endl;
-    cout << "Tong so du: " << TSD << endl;
+    cout << "TSD: " << TSD << endl;
   }
 //! toan tu so sanh
   bool operator > (KHACHHANG k2) {
@@ -62,7 +62,7 @@ int main() {
   cout << endl << "Danh sach khach hang sau khi sap xep: " << endl << endl;
   inDanhSach(a, n);
 
-  //! danh sach khach hang co tong so du lon nhat
+  //! danh sach khach hang co TSD lon nhat
   cout << endl << "-------------------------------" << endl;
   int i = 0;
   cout << endl << "Danh sach khach hang co TSD lon nhat: " << endl;
@@ -74,7 +74,7 @@ int main() {
     cout <<endl;
   }
   
-  //! tong so khach hang va tong so du
+  //! tong so khach hang va TSD
   cout << endl << "-------------------------------" << endl;
   cout << "Tong so khach hang: " << n << endl;
   int sumTSD = 0;
@@ -82,8 +82,7 @@ int main() {
   {
     sumTSD += a[i].getTSD();
   }
-  cout << "Tong so du: " << sumTSD << endl;
+  cout << "TSD cua tat ca cac khach hang: " << sumTSD << endl;
   cout << endl << "-------------------------------" << endl;
   return 0;
-
 }
