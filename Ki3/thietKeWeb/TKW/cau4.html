@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cau 4</title>
+    <link rel="stylesheet" href="cau4.css">
+</head>
+<body>
+    <header>
+        <div class="image">
+            <img src="image.jpg">
+        </div>
+        <div class="menu">
+            <ul>
+                <li>Trang chủ</li>
+                <li>Sản phẩm</li>
+                <li>Liên hệ</li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="title">
+        <h1>
+            My website
+        </h1>
+    </div>
+
+    <div class="box">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, accusantium nam placeat omnis fugit esse ipsam aperiam soluta dolorem commodi ipsa pariatur voluptas numquam, repudiandae natus. Odio quibusdam nam maiores.
+    </div>
+    
+    <div class="object-container">
+
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>My website</p>
+            <p>Address: 123 Street, City, Country</p>
+            <p>Phone: 0123456789</p>
+        </div>
+
+        <form action="">
+            <input type="email" required placeholder="Enter your email">
+            
+            <input type="text" required placeholder="Enter your name" class="email">
+            
+            <input type="submit" value="Subscribe to our newsletter">
+        </form>
+    </footer>
+
+    <script>
+        const container = document.querySelector('.object-container');
+
+        const arr = [
+            {
+                name: "Product 1",
+                price: 1000,
+                description: "Description 1"
+            },
+            {
+                name: "Product 2",
+                price: 2000,
+                description: "Description 2"
+            },
+            {
+                name: "Product 3",
+                price: 3000,
+                description: "Description 3"
+            },
+            {
+                name: "Product 4",
+                price: 4000,
+                description: "Description 4"
+            }
+        ];
+
+        /*arr.forEach(item => {
+            const div = document.createElement('div');
+            div.innerHTML = `
+                <h1>${item.name}</h1>
+                <p>${item.price}</p>
+                <p>${item.description}</p>
+            `;
+            container.appendChild(div);
+        });*/
+
+        for (let i = 0; i < arr.length; i++) {
+            const div = document.createElement('div');
+            div.innerHTML = `
+                <h1>${arr[i].name}</h1>
+                <p>${arr[i].price}</p>
+                <p>${arr[i].description}</p>
+            `;
+            container.appendChild(div);
+        }
+
+    </script>
+</body>
+</html>
